@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 @FunctionalInterface
 public interface LambDemo {
     void  add(int x,int y);
@@ -20,5 +22,6 @@ public interface LambDemo {
             System.out.println("lamb表达式");
         };
         lambDemo.add(5,6);
+
     }
 }
