@@ -4,7 +4,7 @@ import java.util.concurrent.ForkJoinTask;
 import java.util.concurrent.RecursiveTask;
 
 public class ForkDemo extends RecursiveTask<Integer> {
-    private static final Integer TX=10;
+    private static final Integer TX = 10;
     private int begin;
     private int end;
     private int result;
@@ -32,33 +32,33 @@ public class ForkDemo extends RecursiveTask<Integer> {
 
     @Override
     protected Integer compute() {
-        int middle=(begin+end)/2;
-        if(end-begin<=TX){
-            for (int i = begin; i <=end; i++) {
-                result+=i;
+        int middle = (begin + end) / 2;
+        if (end - begin <= TX) {
+            for (int i = begin; i <= end; i++) {
+                result += i;
             }
-        }else{
-            ForkDemo forkDemo1=new ForkDemo(begin,middle);
-            ForkDemo forkDemo2=new ForkDemo(middle+1,end);
+        } else {
+            ForkDemo forkDemo1 = new ForkDemo(begin, middle);
+            ForkDemo forkDemo2 = new ForkDemo(middle + 1, end);
             forkDemo1.fork();
             forkDemo2.fork();
-            result=forkDemo1.join()+forkDemo2.join();
+            result = forkDemo1.join() + forkDemo2.join();
         }
 
         return result;
     }
 
     public static void main(String[] args) {
-        ForkDemo forkDemo=new ForkDemo(0,100);
-        ForkJoinPool forkJoinPool=new ForkJoinPool();
-        ForkJoinTask<Integer> forkJoinTask=forkJoinPool.submit(forkDemo);
+        ForkDemo forkDemo = new ForkDemo(0, 100);
+        ForkJoinPool forkJoinPool = new ForkJoinPool();
+        ForkJoinTask<Integer> forkJoinTask = forkJoinPool.submit(forkDemo);
         try {
             System.out.println(forkJoinTask.get());
         } catch (InterruptedException e) {
             e.printStackTrace();
         } catch (ExecutionException e) {
             e.printStackTrace();
-        }finally {
+        } finally {
             forkJoinPool.shutdown();
         }
 

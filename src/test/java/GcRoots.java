@@ -46,10 +46,10 @@ public class GcRoots {
      *  前后地址后加#L21,21是代码行号，可以直接定位到代码，高亮显示
      * https://github.com/JeffLi1993/springboot-learning-example/blob/master/chapter-3-spring-boot-web/src/main/java/demo/springboot/service/impl/BookServiceImpl.java
      * https://github.com/JeffLi1993/springboot-learning-example/blob/master/chapter-3-spring-boot-web/src/main/java/demo/springboot/service/impl/BookServiceImpl.java#L21
-       t快捷键文章内搜索  location:beijing language:java搜索北京java大佬
+     t快捷键文章内搜索  location:beijing language:java搜索北京java大佬
      */
     /**
-     * mysql存储引擎 myisam 关注性能，不支持事务，表锁；innodb 关注事务，支持事务，行锁
+     * mysql存储引擎 myisam 关注性能，不支持事务，表锁，不支持主外键；innodb 关注事务，支持事务，行锁，支持主外键
      */
 
 

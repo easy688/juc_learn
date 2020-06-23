@@ -9,18 +9,18 @@ public class CallableDemo implements Callable<Integer> {
     }
 
     public static void main(String[] args) {
-        Callable callable=new CallableDemo();
-        FutureTask<Integer> futureTask=new FutureTask<>(callable);
-        new Thread(futureTask,"有返回值的线程").start();
+        Callable callable = new CallableDemo();
+        FutureTask<Integer> futureTask = new FutureTask<>(callable);
+        new Thread(futureTask, "有返回值的线程").start();
         System.out.println(futureTask.isDone());
-            try{
-                Integer num=futureTask.get();
-                System.out.println("返回值："+num+futureTask.isDone());
-            }catch (InterruptedException e){
-                e.printStackTrace();
+        try {
+            Integer num = futureTask.get();
+            System.out.println("返回值：" + num + futureTask.isDone());
+        } catch (InterruptedException e) {
+            e.printStackTrace();
 
-            }catch (ExecutionException e1){
-                e1.printStackTrace();
-            }
+        } catch (ExecutionException e1) {
+            e1.printStackTrace();
         }
+    }
 }

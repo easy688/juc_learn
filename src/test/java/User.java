@@ -3,10 +3,11 @@ public class User {
     private int age;
     private String name;
     private int id;
-    public User(int id,int age,String name){
-        this.id=id;
-        this.age=age;
-        this.name=name;
+
+    public User(int id, int age, String name) {
+        this.id = id;
+        this.age = age;
+        this.name = name;
     }
 
     public int getAge() {
